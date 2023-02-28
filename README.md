@@ -5,7 +5,7 @@
 ## Quick Guide
 
 ```bash
-git clone https://github.com/Yosolita1978/HardCodeDataWeatherApi.git <nameyourfolder>
+git clone https://github.com/Yosolita1978/SimpleForm.git <nameyourfolder>
 ```
 
 move inside the directory
@@ -36,7 +36,7 @@ It's possible your server will already be running with a different project. [Her
 ![screenshot](https://github.com/Yosolita1978/screenshoots/blob/main/2023/H1/Screen%20Shot%202023-02-25%20at%202.59.28%20PM.png?raw=true)
 
 Note:
-Server runs on http://localhost:8080 and client on http://localhost:3000
+Server runs on http://localhost:8082 and client on http://localhost:3000
 
 ### Resource
 - [How to easily manipulate URL search parameters in JavaScript](https://felixgerschau.com/js-manipulate-url-search-params/)
