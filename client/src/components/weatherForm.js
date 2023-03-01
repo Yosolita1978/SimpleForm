@@ -9,16 +9,16 @@ const WeatherForm = (props) =>{
   }
 
   //hint = Make the submit an function in the parent and control the info in the parent
-  const handleSubmit = (event) => {
+  const onEventofClick = (event) => {
     event.preventDefault();
-    console.log(city);
+    props.userInputCity(city);
   };
 
 
     return (
         <div className="weather">
         <h1 className="App-header">Techtonica City App</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={onEventofClick}>
           <input
             id="city-name"
             type="text"
@@ -26,6 +26,7 @@ const WeatherForm = (props) =>{
             name="city"
             value={city}
             onChange={onChange}
+ 
           />
           <input type="submit" value="Submit" />
         </form>

@@ -1,33 +1,39 @@
 import './App.css';
 import { useState } from "react";
 import WeatherForm from './components/weatherForm';
-import WeatherCard from './components/weatherCard';
+import Message from './components/message';
+
 
 function App() {
+
   const [city, setCity] = useState("");
-  const [result, setResult] = useState(null);
+  // const [result, setResult] = useState(null);
 
-  //A function to do the get request and set the state from the hard code data
-  const loadCity = () => {
-    fetch("http://localhost:8080/api/weather")
-      .then((response) => response.json())
-      .then((result) => {
-        //console.log(result)
-        setCity(result.weather[0].name);
-        setResult(result);
-      });
-  }
+ // build a function that send city to the backend
 
- const handleSubmit = (e) =>{
-  e.preventDefault();
-  loadCity();
+ const sendCity = (city) =>{
+  const params = new URLSearchParams({cityName: city})
+  //console.log(params);
+  const URL = `http://localhost:8082/weather?${params}`
+  fetch(URL)
+  .then((response) => response.json)
+  .then((result) => {
+    console.log(result);
+  })
+ }
+
+ const userInputCity= (city) =>{
+  setCity(city);
+  //console.log(city);
+  sendCity(city);
  }
 
 
   return (
     <div className="App">
-      <WeatherForm city={city} handleSubmit={handleSubmit}/>
-      {!result ? <p>Tell us where do you live</p> : <WeatherCard data={result} /> }
+      <WeatherForm city={city} userInputCity={userInputCity}/>
+      {!city ? null :<Message city={city} />}
+
     </div>
   );
 }

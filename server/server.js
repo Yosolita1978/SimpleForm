@@ -14,10 +14,16 @@ app.get('/', (req, res) => {
     res.json({ message: 'Hello from My template ExpressJS' });
   });
 
-// creates an endpoint for the route /api/weather
-app.get('/api/weather/', (req, res) => {
+// creates an endpoint for the route /weather
+app.get('/weather/', (req, res) => {
   const city = req.query.cityName;
-  console.log(city);
+  console.log("this is comming from the server", city);
+  //TO_DO: here will go the API request! 
+  
+  // optional - closing the request
+
+  res.sendStatus(200).end()
+  //res.send({data})
 })
 
 
